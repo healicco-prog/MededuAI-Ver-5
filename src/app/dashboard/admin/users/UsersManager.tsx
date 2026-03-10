@@ -6,8 +6,15 @@ import { getAllUsers, updateUserRole } from './actions';
 
 type UserRole = 'student' | 'teacher' | 'deptadmin' | 'instadmin' | 'masteradmin' | 'superadmin' | string;
 
+interface User {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+}
+
 export default function UsersManager({ currentUserRole }: { currentUserRole: 'masteradmin' | 'superadmin' }) {
-    const [users, setUsers] = useState<any[]>([]);
+    const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState(true);
     const [editingUserId, setEditingUserId] = useState<string | null>(null);
     const [editForm, setEditForm] = useState<{ role: UserRole }>({ role: 'student' });
@@ -35,7 +42,7 @@ export default function UsersManager({ currentUserRole }: { currentUserRole: 'ma
         visibleRoles.push('student', 'teacher');
     }
 
-    const filteredUsers = users.filter((user: { id: string, name: string, email: string, role: string }) => {
+    const filteredUsers = users.filter((user: User) => {
         if (!user.role || !visibleRoles.includes(user.role)) return false;
 
         const q = searchQuery.toLowerCase();
@@ -44,7 +51,7 @@ export default function UsersManager({ currentUserRole }: { currentUserRole: 'ma
             user.role.toLowerCase().includes(q);
     });
 
-    const handleEditClick = (user: { id: string, name: string, email: string, role: string }) => {
+    const handleEditClick = (user: User) => {
         setEditingUserId(user.id);
         setEditForm({ role: user.role });
     };
@@ -108,7 +115,7 @@ export default function UsersManager({ currentUserRole }: { currentUserRole: 'ma
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100">
-                            {filteredUsers.map((user: { id: string, name: string, email: string, role: string }) => {
+                            {filteredUsers.map((user: User) => {
                                 const isEditing = editingUserId === user.id;
 
                                 return (

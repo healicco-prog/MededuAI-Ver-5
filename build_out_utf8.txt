@@ -1,0 +1,80 @@
+﻿
+> temp_mededuai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+node.exe : ΓÜá The 
+"middleware" file 
+convention is 
+deprecated. Please use 
+"proxy" instead. Learn 
+more: https://nextjs.org/
+docs/messages/middleware-
+to-proxy
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo       
+       : NotSpecified:   
+  (ΓÜá The "middle...l   
+ eware-to-proxy:Strin    
+g) [], RemoteExcepti    
+on
+    + FullyQualifiedErro 
+   rId : NativeCommandE  
+  rror
+ 
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 6.6s
+  Running TypeScript ...
+Failed to compile.
+
+./test_db.ts:2:20
+Type error: Cannot find 
+module 'dotenv' or its 
+corresponding type 
+declarations.
+
+[0m [90m 1 |[39m 
+[36mimport[39m { 
+createClient } 
+[36mfrom[39m [32m'@sup
+abase/supabase-js'[39m[
+33m;[39m
+[31m[1m>[22m[39m[90m
+ 2 |[39m 
+[36mimport[39m dotenv 
+[36mfrom[39m [32m'dote
+nv'[39m[33m;[39m
+ [90m   |[39m          
+          
+[31m[1m^[22m[39m
+ [90m 3 |[39m dotenv[3
+3m.[39mconfig({path[33m
+:[39m [32m'.env.local'
+[39m})[33m;[39m
+ [90m 4 |[39m 
+[36mconst[39m supabase 
+[33m=[39m createClient(
+process[33m.[39menv[33
+m.[39m[33mNEXT_PUBLIC_S
+UPABASE_URL[39m[33m![3
+9m[33m,[39m process[33
+m.[39menv[33m.[39m[33
+mSUPABASE_SERVICE_ROLE_KE
+Y[39m[33m![39m)[33m;
+[39m
+ [90m 5 |[39m 
+[36masync[39m 
+[36mfunction[39m run() 
+{[0m
+Next.js build worker 
+exited with code: 1 and 
+signal: null
