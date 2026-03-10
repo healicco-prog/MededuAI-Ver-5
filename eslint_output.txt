@@ -1,0 +1,41 @@
+
+D:\Lenovo Narayana 2026\Software Products\Antigravity Projects\mededuai Ver 5\src\app\dashboard\admin\users\UsersManager.tsx
+    4:58  warning  'ArrowRight' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   10:40  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-explicit-any
+   18:9   error    Error: Cannot access variable before it is declared
+
+`fetchUsers` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+D:\Lenovo Narayana 2026\Software Products\Antigravity Projects\mededuai Ver 5\src\app\dashboard\admin\users\UsersManager.tsx:18:9
+  16 |
+  17 |     useEffect(() => {
+> 18 |         fetchUsers();
+     |         ^^^^^^^^^^ `fetchUsers` accessed before it is declared
+  19 |     }, []);
+  20 |
+  21 |     const fetchUsers = async () => {
+
+D:\Lenovo Narayana 2026\Software Products\Antigravity Projects\mededuai Ver 5\src\app\dashboard\admin\users\UsersManager.tsx:21:5
+  19 |     }, []);
+  20 |
+> 21 |     const fetchUsers = async () => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |         const data = await getAllUsers();
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |         setUsers(data);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |     };
+     | ^^^^^^^ `fetchUsers` is declared here
+  27 |
+  28 |     // Determine which users to display based on currentUserRole
+  29 |     const visibleRoles: UserRole[] = [];  react-hooks/immutability
+   38:47  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-explicit-any
+   47:36  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-explicit-any
+  111:55  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-explicit-any
+
+✖ 6 problems (5 errors, 1 warning)
+

@@ -1,0 +1,68 @@
+﻿
+> temp_mededuai@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+node.exe : ΓÜá The 
+"middleware" file convention 
+is deprecated. Please use 
+"proxy" instead. Learn more: h
+ttps://nextjs.org/docs/message
+s/middleware-to-proxy
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : 
+    NotSpecified: (ΓÜá The "  
+  middle...leware-to-proxy:   
+ String) [], RemoteExcepti    
+on
+    + FullyQualifiedErrorId : 
+    NativeCommandError
+ 
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 4.1s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/22) ...
+  Generating static pages using 11 workers (5/22) 
+  Generating static pages using 11 workers (10/22) 
+  Generating static pages using 11 workers (16/22) 
+Γ£ô Generating static pages using 11 workers (22/22) in 347.0ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ ╞Æ /dashboard/admin
+Γö£ ╞Æ /dashboard/admin/creator
+Γö£ ╞Æ /dashboard/student
+Γö£ ╞Æ /dashboard/student/case
+Γö£ ╞Æ /dashboard/student/eval
+Γö£ ╞Æ /dashboard/student/imp-questions
+Γö£ ╞Æ /dashboard/student/mentor
+Γö£ ╞Æ /dashboard/student/notes
+Γö£ ╞Æ /dashboard/student/reflection
+Γö£ ╞Æ /dashboard/student/structurer
+Γö£ ╞Æ /dashboard/student/viva
+Γö£ ╞Æ /dashboard/student/vocab
+Γö£ ╞Æ /dashboard/teacher
+Γö£ ╞Æ /dashboard/teacher/attendance
+Γö£ ╞Æ /dashboard/teacher/ems
+Γö£ ╞Æ /dashboard/teacher/lesson-plan
+Γö£ ╞Æ /dashboard/teacher/q-paper
+Γöö Γùï /login
+
+
+╞Æ Proxy (Middleware)
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+
