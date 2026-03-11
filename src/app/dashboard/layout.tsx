@@ -19,6 +19,7 @@ export default async function DashboardLayout({
         const cookieStore = await cookies();
         const currentRole = cookieStore.get('__session')?.value;
         cookieStore.delete('__session');
+        cookieStore.delete('auth_token');
         if (currentRole === 'masteradmin' || currentRole === 'superadmin') {
             redirect('/controlpanel');
         } else {
