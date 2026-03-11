@@ -3,5 +3,15 @@
   "scope": "codebase",
   "type": "frontend",
   "localEndpoint": "http://localhost:3000/",
-  "serverPort": 63797
+  "serverPort": 60723,
+  "executionArgs": {
+    "projectName": "mededuai Ver 5",
+    "projectPath": "d:\\Lenovo Narayana 2026\\Software Products\\Antigravity Projects\\mededuai Ver 5",
+    "testIds": [],
+    "additionalInstruction": "Verify the student dashboard navigation correctly navigates to LMS Notes, AI Mentor, Viva simulator etc without redirecting to login.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-LMA8I9yF6R6mMUhe0g13DUwgSHgmNInxX5Y0hmvVjLTnrLR779gKwDhRMZcXqr7QrjH5wdS6cUn1yIxPLhBaVU3PhHCQNubSANq7tIQEx4hvNM5mui28WSq8PZpoVzEGZxI"
+    }
+  }
 }

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { setRoleCookieAndRedirect } from '@/app/login/actions';
+import { setRoleCookie } from '@/app/login/actions';
 
 export default function AuthCallback() {
     const router = useRouter();
@@ -36,8 +36,9 @@ export default function AuthCallback() {
                     role = profileData.role;
                 }
 
-                // Use our server action to set the cookie and redirect
-                await setRoleCookieAndRedirect(role);
+                // Use our server action to set the cookie
+                const frontendRole = await setRoleCookie(role);
+                window.location.href = `/dashboard/${frontendRole}`;
                 
             } catch (err: any) {
                 console.error("Auth callback error:", err);
