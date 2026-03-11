@@ -18,9 +18,9 @@ COPY . .
 # Next.js telemetry false
 ENV NEXT_TELEMETRY_DISABLED 1
 
-# Environment variables for build time (dummy values if needed)
-# ENV NEXT_PUBLIC_SUPABASE_URL=...
-
+# Environment variables for build time (public safely embedded for client bundle)
+ENV NEXT_PUBLIC_SUPABASE_URL=https://yrelfdwkjtaidtoulwrj.supabase.co
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyZWxmZHdranRhaWR0b3Vsd3JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDU3ODQsImV4cCI6MjA4ODY4MTc4NH0.FpFw_TINjRTeSRK54PFa-NoLa5R9ctx8y5h4_wmoBfk
 RUN npm run build
 
 # Production image, copy all the files and run next
