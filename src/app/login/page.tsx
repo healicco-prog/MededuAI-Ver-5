@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { BrainCircuit, Home, Loader2, Mail, Lock } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { setRoleCookieAndRedirect } from './actions';
+import { setRoleCookie } from './actions';
 
 export default function LoginPage() {
     const router = useRouter();
@@ -46,8 +46,11 @@ export default function LoginPage() {
                     role = profileData.role;
                 }
 
-                // Set the role cookie and redirect
-                await setRoleCookieAndRedirect(role);
+                // Set the role cookie and get the frontend role
+                const frontendRole = await setRoleCookie(role);
+                
+                // Use a hard reload window location to fully reset Next.js client-side caches and cookies
+                window.location.href = `/dashboard/${frontendRole}`;
             } catch (err: any) {
                 console.error("Redirection logic failed: ", err);
                 setError("Failed to fetch user profile. Please contact support.");

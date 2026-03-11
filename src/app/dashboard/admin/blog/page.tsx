@@ -3,7 +3,7 @@ import BlogManagerClient from './BlogManagerClient';
 
 export default async function AdminBlogPage() {
     const cookieStore = await cookies();
-    const role = cookieStore.get('role')?.value as 'superadmin';
+    const role = cookieStore.get('__session')?.value as 'superadmin';
 
     // Ensure only authorized admins can access
     if (role !== 'superadmin') {

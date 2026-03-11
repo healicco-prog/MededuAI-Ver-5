@@ -4,7 +4,7 @@ import DeptMentoringHubClient from './DeptMentoringHubClient';
 
 export default async function DeptMentoringPage() {
     const cookieStore = await cookies();
-    const role = cookieStore.get('role')?.value as UserRole;
+    const role = cookieStore.get('__session')?.value as UserRole;
 
     if (role !== 'deptadmin' && role !== 'instadmin' && role !== 'masteradmin' && role !== 'superadmin') {
         return <div className="p-8 text-slate-500">Access Denied</div>;

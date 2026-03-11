@@ -4,14 +4,19 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   // Mock Authentication for testing
   // We use a 'role' cookie to simulate the RBAC login session
-  const roleCookie = request.cookies.get('role');
-  const role = roleCookie?.value;
+  const roleCookie = request.cookies.get('__session');
+  const rawRole = roleCookie?.value;
+  const role = rawRole ? rawRole.replace(/['"]/g, '').trim().toLowerCase() : undefined;
 
   const { pathname } = request.nextUrl;
+  console.log(`[Middleware] ${request.method} ${pathname}`);
+  console.log(`[Middleware] Cookies:`, request.cookies.getAll());
+  console.log(`[Middleware] Role evaluated: ${role || 'NONE'}`);
 
   // Protect all /dashboard routes
   if (pathname.startsWith('/dashboard')) {
     if (!role) {
+      console.log(`[Middleware] Missing role. Redirecting to login. Details: cookie header was ${request.headers.get('cookie')}`);
       // Redirect to login if not authenticated
       return NextResponse.redirect(new URL('/login', request.url));
     }
@@ -34,6 +39,10 @@ export function middleware(request: NextRequest) {
     }
 
     if (pathname.startsWith('/dashboard/superadmin') && role !== 'superadmin') {
+      return NextResponse.redirect(new URL(`/dashboard/${role}`, request.url));
+    }
+
+    if (pathname.startsWith('/dashboard/masteradmin') && role !== 'masteradmin' && role !== 'superadmin') {
       return NextResponse.redirect(new URL(`/dashboard/${role}`, request.url));
     }
 

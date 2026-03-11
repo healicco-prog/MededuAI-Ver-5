@@ -10,13 +10,13 @@ export default async function DashboardLayout({
     children: React.ReactNode;
 }) {
     const cookieStore = await cookies();
-    const role = cookieStore.get('role')?.value || 'student';
+    const role = cookieStore.get('__session')?.value || 'student';
 
     async function handleLogout() {
         'use server';
         const cookieStore = await cookies();
-        const currentRole = cookieStore.get('role')?.value;
-        cookieStore.delete('role');
+        const currentRole = cookieStore.get('__session')?.value;
+        cookieStore.delete('__session');
         if (currentRole === 'masteradmin' || currentRole === 'superadmin') {
             redirect('/controlpanel');
         } else {

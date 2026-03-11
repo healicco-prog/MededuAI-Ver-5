@@ -5,7 +5,7 @@ import DeptAssessmentsClient from './DeptAssessmentsClient';
 export default async function AdminMentorshipPage() {
     // Only allow deptadmin, instadmin, masteradmin, superadmin
     const cookieStore = await cookies();
-    const role = cookieStore.get('role')?.value;
+    const role = cookieStore.get('__session')?.value;
 
     if (!role || (role !== 'deptadmin' && role !== 'instadmin' && role !== 'masteradmin' && role !== 'superadmin')) {
         return (

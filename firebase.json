@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "mededuai-backend",
+          "region": "asia-south1"
+        }
+      }
+    ]
+  }
+}

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default async function AdminCreatorPage() {
     const cookieStore = await cookies();
-    const role = cookieStore.get('role')?.value;
+    const role = cookieStore.get('__session')?.value;
 
     if (role !== 'superadmin') {
         return <div className="p-8 text-slate-500">Access Denied</div>;

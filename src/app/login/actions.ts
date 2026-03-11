@@ -1,9 +1,8 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 
-export async function setRoleCookieAndRedirect(role: string) {
+export async function setRoleCookie(role: string) {
     const roleMapping: Record<string, string> = {
         'super_admin': 'superadmin',
         'master_admin': 'masteradmin',
@@ -16,11 +15,11 @@ export async function setRoleCookieAndRedirect(role: string) {
     const frontendRole = roleMapping[role] || 'student';
 
     const cookieStore = await cookies();
-    cookieStore.set('role', frontendRole, { 
-        secure: process.env.NODE_ENV === 'production', 
-        path: '/' 
+    cookieStore.set('__session', frontendRole, { 
+        path: '/',
+        maxAge: 60 * 60 * 24 * 7, // 1 week
+        sameSite: 'lax'
     });
     
-    // Redirect securely based on role
-    redirect(`/dashboard/${frontendRole}`);
+    return frontendRole;
 }
