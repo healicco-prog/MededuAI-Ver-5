@@ -238,6 +238,12 @@ function SidebarItem({ icon, label, href, badge }: any) {
         <a
             href={href}
             title={label}
+            onClick={(e) => {
+                e.preventDefault();
+                // We use window.location.href explicitly because we KNOW it successfully 
+                // transported cookies during the initial login -> dashboard transition.
+                window.location.href = href;
+            }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all relative group font-semibold ${isActive ? 'bg-emerald-50 text-emerald-700' : 'text-slate-500 hover:bg-emerald-50 hover:text-emerald-700'}`}
         >
             <div className={`transition-colors ${isActive ? 'text-emerald-600' : 'text-slate-400 group-hover:text-emerald-600'}`}>
