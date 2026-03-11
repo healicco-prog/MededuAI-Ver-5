@@ -10,6 +10,8 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { supabase } from '@/lib/supabase';
+import { clearAuthCookies } from '@/app/login/actions';
 
 // Helper to parse MCQs
 const parseMCQs = (text: string) => {
@@ -530,7 +532,14 @@ export default function StudentLMSNotes() {
                                                 <ArrowLeft className="w-4 h-4 text-slate-400" /> Back to Dashboard
                                             </button>
                                             <div className="h-px bg-slate-100 my-1"></div>
-                                            <button onClick={() => window.location.href = '/login'} className="w-full flex items-center gap-3 px-5 py-3 text-sm font-bold text-rose-600 hover:bg-rose-50 transition-colors">
+                                            <button 
+                                                onClick={async () => {
+                                                    try { await supabase.auth.signOut(); } catch(e) {}
+                                                    await clearAuthCookies();
+                                                    window.location.href = '/login';
+                                                }} 
+                                                className="w-full flex items-center gap-3 px-5 py-3 text-sm font-bold text-rose-600 hover:bg-rose-50 transition-colors"
+                                            >
                                                 <LogOut className="w-4 h-4 text-rose-500" /> Log out
                                             </button>
                                         </motion.div>

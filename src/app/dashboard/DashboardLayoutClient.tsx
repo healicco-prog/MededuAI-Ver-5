@@ -185,16 +185,33 @@ export default function DashboardLayoutClient({ children, role, handleLogout }: 
                 </nav>
 
                 <div className="p-4 border-t border-slate-100 flex-shrink-0">
-                    <form action={handleLogout}>
-                        <button
-                            type="submit"
-                            suppressHydrationWarning
-                            className="w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all group"
-                        >
-                            <LogOut className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                            <span className="font-bold">Logout</span>
-                        </button>
-                    </form>
+                    <button
+                        onClick={async (e) => {
+                            e.preventDefault();
+                            try {
+                                // Destroy Supabase active client session
+                                await supabase.auth.signOut();
+                            } catch (error) {
+                                console.error("Supabase signout failed:", error);
+                            }
+                            
+                            // Delete cookies explicitly on server
+                            const oldRole = await handleLogout();
+                            
+                            // Native browser hard reload to prevent Next.js from rescuing previous states
+                            if (oldRole === 'masteradmin' || oldRole === 'superadmin') {
+                                window.location.href = '/controlpanel';
+                            } else {
+                                window.location.href = '/login';
+                            }
+                        }}
+                        type="button"
+                        suppressHydrationWarning
+                        className="w-full flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all group"
+                    >
+                        <LogOut className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                        <span className="font-bold">Logout</span>
+                    </button>
                 </div>
             </aside>
 

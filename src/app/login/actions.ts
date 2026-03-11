@@ -33,3 +33,11 @@ export async function setRoleCookie(role: string, jwtToken?: string) {
     
     return frontendRole;
 }
+
+export async function clearAuthCookies() {
+    const cookieStore = await cookies();
+    const currentRole = cookieStore.get('__session')?.value;
+    cookieStore.delete('__session');
+    cookieStore.delete('auth_token');
+    return currentRole;
+}
