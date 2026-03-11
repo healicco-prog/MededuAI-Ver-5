@@ -47,7 +47,7 @@ export default function LoginPage() {
                 }
 
                 // Set the role cookie and get the frontend role
-                const frontendRole = await setRoleCookie(role);
+                const frontendRole = await setRoleCookie(role, data.session?.access_token);
                 
                 // Use a hard reload window location to fully reset Next.js client-side caches and cookies
                 window.location.href = `/dashboard/${frontendRole}`;

@@ -2,7 +2,7 @@
 
 import { cookies } from 'next/headers';
 
-export async function setRoleCookie(role: string) {
+export async function setRoleCookie(role: string, jwtToken?: string) {
     const roleMapping: Record<string, string> = {
         'super_admin': 'superadmin',
         'master_admin': 'masteradmin',
@@ -15,11 +15,21 @@ export async function setRoleCookie(role: string) {
     const frontendRole = roleMapping[role] || 'student';
 
     const cookieStore = await cookies();
-    cookieStore.set('__session', frontendRole, { 
+    
+    const isProd = process.env.NODE_ENV === 'production';
+    const cookieOptions = { 
         path: '/',
         maxAge: 60 * 60 * 24 * 7, // 1 week
-        sameSite: 'lax'
-    });
+        sameSite: (isProd ? 'none' : 'lax') as 'none' | 'lax',
+        httpOnly: true,
+        secure: isProd
+    };
+
+    cookieStore.set('__session', frontendRole, cookieOptions);
+    
+    if (jwtToken) {
+        cookieStore.set('auth_token', jwtToken, cookieOptions);
+    }
     
     return frontendRole;
 }

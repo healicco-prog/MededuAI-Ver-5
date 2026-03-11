@@ -37,7 +37,7 @@ export default function AuthCallback() {
                 }
 
                 // Use our server action to set the cookie
-                const frontendRole = await setRoleCookie(role);
+                const frontendRole = await setRoleCookie(role, session.access_token);
                 window.location.href = `/dashboard/${frontendRole}`;
                 
             } catch (err: any) {

@@ -235,7 +235,7 @@ function SidebarItem({ icon, label, href, badge }: any) {
     const isActive = pathname === href;
 
     return (
-        <Link
+        <a
             href={href}
             title={label}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all relative group font-semibold ${isActive ? 'bg-emerald-50 text-emerald-700' : 'text-slate-500 hover:bg-emerald-50 hover:text-emerald-700'}`}
@@ -249,6 +249,6 @@ function SidebarItem({ icon, label, href, badge }: any) {
                     {badge}
                 </span>
             )}
-        </Link>
+        </a>
     );
 }

@@ -10,7 +10,9 @@ export default async function DashboardLayout({
     children: React.ReactNode;
 }) {
     const cookieStore = await cookies();
-    const role = cookieStore.get('__session')?.value || 'student';
+    const rawRole = cookieStore.get('__session')?.value;
+    const role = rawRole || 'student';
+    const authToken = cookieStore.get('auth_token')?.value;
 
     async function handleLogout() {
         'use server';
