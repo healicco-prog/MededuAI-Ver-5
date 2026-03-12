@@ -1,17 +1,22 @@
 {
-  "status": "init",
-  "scope": "codebase",
+  "status": "commited",
   "type": "frontend",
-  "localEndpoint": "http://localhost:3000/",
-  "serverPort": 60723,
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000/login",
+  "loginUser": "narayanakdr@yahoo.co.in",
+  "loginPassword": "111111",
   "executionArgs": {
     "projectName": "mededuai Ver 5",
     "projectPath": "d:\\Lenovo Narayana 2026\\Software Products\\Antigravity Projects\\mededuai Ver 5",
-    "testIds": [],
-    "additionalInstruction": "Verify the student dashboard navigation correctly navigates to LMS Notes, AI Mentor, Viva simulator etc without redirecting to login.",
+    "testIds": [
+      "TC_LOGIN_PROD_BUG"
+    ],
+    "additionalInstruction": "Please generate and execute the tests bypassing signup. Users have been verified in the db already.",
     "serverMode": "development",
     "envs": {
       "API_KEY": "sk-user-LMA8I9yF6R6mMUhe0g13DUwgSHgmNInxX5Y0hmvVjLTnrLR779gKwDhRMZcXqr7QrjH5wdS6cUn1yIxPLhBaVU3PhHCQNubSANq7tIQEx4hvNM5mui28WSq8PZpoVzEGZxI"
     }
-  }
+  },
+  "serverPort": 49375,
+  "proxy": "http://da13baa1-ebb4-4a6f-9763-57fab8f22e0a:rlwDu2qwOLFHpj1r0tpf8mWtEqIX3g0E@tun.testsprite.com:8080"
 }

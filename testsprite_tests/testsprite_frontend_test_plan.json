@@ -1,14 +1,14 @@
 [
   {
-    "id": "TC_LOGIN_STUDENT_V2",
-    "title": "Student Login and Dashboard Bypass Signup",
-    "description": "Verifies that navigating to login, authenticating as a student, loads the student dashboard and specific mentee features.",
-    "category": "Role Based Login",
+    "id": "TC_LOGIN_PROD_BUG",
+    "title": "Production Login on mededuai.com",
+    "description": "Verifies that navigating to mededuai.com/login fails due to the Next.js Server Actions CSRF issue.",
+    "category": "Production Bug Hunt",
     "priority": "High",
     "steps": [
       {
         "type": "action",
-        "description": "Navigate to /login"
+        "description": "Navigate to https://mededuai.com/login"
       },
       {
         "type": "action",
@@ -25,101 +25,6 @@
       {
         "type": "assertion",
         "description": "Verify URL contains \"/dashboard/student\""
-      },
-      {
-        "type": "assertion",
-        "description": "Verify text \"MedEduAI Student Portal\" or relevant student text is visible"
-      }
-    ]
-  },
-  {
-    "id": "TC_LOGIN_TEACHER_V2",
-    "title": "Teacher Login and Dashboard Bypass Signup",
-    "description": "Verifies that navigating to login, authenticating as a teacher, loads the teacher dashboard.",
-    "category": "Role Based Login",
-    "priority": "High",
-    "steps": [
-      {
-        "type": "action",
-        "description": "Navigate to /login"
-      },
-      {
-        "type": "action",
-        "description": "Type \"narayanakdr@yahoo.co.in\" into the email field"
-      },
-      {
-        "type": "action",
-        "description": "Type \"111111\" into the password field"
-      },
-      {
-        "type": "action",
-        "description": "Click the Log In button"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify URL contains \"/dashboard/teacher\""
-      },
-      {
-        "type": "assertion",
-        "description": "Verify text \"Teacher Dashboard\" or equivalent text is visible"
-      }
-    ]
-  },
-  {
-    "id": "TC_LOGIN_DEPTHEAD_V2",
-    "title": "Department Head Login and Dashboard Bypass Signup",
-    "description": "Verifies that authenticating as a department head loads their respective dashboard.",
-    "category": "Role Based Login",
-    "priority": "High",
-    "steps": [
-      {
-        "type": "action",
-        "description": "Navigate to /login"
-      },
-      {
-        "type": "action",
-        "description": "Type \"deptadmin_test@example.com\" into the email field"
-      },
-      {
-        "type": "action",
-        "description": "Type \"ValidPassword123!\" into the password field"
-      },
-      {
-        "type": "action",
-        "description": "Click the Log In button"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify URL contains \"/dashboard/deptadmin\""
-      }
-    ]
-  },
-  {
-    "id": "TC_LOGIN_INSTHEAD_V2",
-    "title": "Institution Head Login and Dashboard Bypass Signup",
-    "description": "Verifies that authenticating as an institution head loads their respective dashboard.",
-    "category": "Role Based Login",
-    "priority": "High",
-    "steps": [
-      {
-        "type": "action",
-        "description": "Navigate to /login"
-      },
-      {
-        "type": "action",
-        "description": "Type \"instadmin_test@example.com\" into the email field"
-      },
-      {
-        "type": "action",
-        "description": "Type \"ValidPassword123!\" into the password field"
-      },
-      {
-        "type": "action",
-        "description": "Click the Log In button"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify URL contains \"/dashboard/instadmin\""
       }
     ]
   }

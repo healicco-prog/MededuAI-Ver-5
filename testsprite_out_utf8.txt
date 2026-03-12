@@ -1,0 +1,60 @@
+﻿≡ƒÜÇ Starting test execution...
+node : Γ¥î Test 
+execution failed: Error: 
+Tests are running. 
+Please wait for it to 
+complete or remove the 
+lock file:  d:\Lenovo 
+Narayana 2026\Software 
+Products\Antigravity 
+Projects\mededuai Ver 5\t
+estsprite_tests\tmp\execu
+tion.lock
+At line:1 char:1
++ node "C:\Users\Dr 
+Narayana K\AppData\Local\
+npm-cache\_npx\8ddf6bea01
+b ...
++ ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo       
+       : NotSpecified:   
+  (Γ¥î Test execut...\   
+ execution.lock:Strin    
+g) [], RemoteExcepti    
+on
+    + FullyQualifiedErro 
+   rId : NativeCommandE  
+  rror
+ 
+    at file:///C:/Users/D
+r%20Narayana%20K/AppData/
+Local/npm-cache/_npx/8ddf
+6bea01b2519d/node_modules
+/@testsprite/testsprite-m
+cp/dist/index.js:134296:2
+3
+    at 
+Command.<anonymous> (file
+:///C:/Users/Dr%20Narayan
+a%20K/AppData/Local/npm-c
+ache/_npx/8ddf6bea01b2519
+d/node_modules/@testsprit
+e/testsprite-mcp/dist/ind
+ex.js:141369:15)
+    at async 
+Command.parseAsync (file:
+///C:/Users/Dr%20Narayana
+%20K/AppData/Local/npm-ca
+che/_npx/8ddf6bea01b2519d
+/node_modules/@testsprite
+/testsprite-mcp/dist/inde
+x.js:139638:6)
+    at async main (file:/
+//C:/Users/Dr%20Narayana%
+20K/AppData/Local/npm-cac
+he/_npx/8ddf6bea01b2519d/
+node_modules/@testsprite/
+testsprite-mcp/dist/index
+.js:141614:9)

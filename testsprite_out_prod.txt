@@ -1,0 +1,17 @@
+🚀 Starting test execution...
+Proxy port: 49379
+Tunnel started successfully! Proxy URL: http://da13baa1-ebb4-4a6f-9763-57fab8f22e0a:rlwDu2qwOLFHpj1r0tpf8mWtEqIX3g0E@tun.testsprite.com:8080
+⚡ Running tests...
+This process may take anywhere from several minutes up to 15 minutes to complete.
+
+✅ Please ensure:
+  • Your local servers are running and reachable
+  • Your internet connection remains stable throughout the process
+(node:4520) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Test execution completed.
+HTTP Proxy has been closed.
+Tunnel has been closed.
+Execution lock released.
+
+Server will remain active for 1 hour. Press Ctrl+C to exit early.

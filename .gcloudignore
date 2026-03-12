@@ -1,0 +1,12 @@
+.gcloudignore
+.git
+.gitignore
+node_modules
+testsprite_tests/tmp
+build_err.log
+err.log
+err-utf8.log
+lint_out.txt
+lint_output.txt
+package-lock.json
+.next

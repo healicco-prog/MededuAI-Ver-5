@@ -1,0 +1,36 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - Next.js
+  - TailwindCSS
+  - React
+routes:
+  - path: /login
+    file: src/app/login/page.tsx
+    auth_required: false
+    description: User login page
+  - path: /signup
+    file: src/app/signup/page.tsx
+    auth_required: false
+    description: User registration
+  - path: /dashboard
+    file: src/app/dashboard/layout.tsx
+    auth_required: true
+    description: Main dashboard for authenticated users
+features:
+  - name: User Login
+    description: Login with email and password credentials
+    files:
+      - src/app/login/page.tsx
+    entry_route: /login
+    user_interactions:
+      - Fill email input field
+      - Fill password input field
+      - Click Login button to submit
+      - See error message on invalid credentials
+    api_calls:
+      - method: POST
+        endpoint: /api/auth/login
+    auth_required: false
+known_limitations: []

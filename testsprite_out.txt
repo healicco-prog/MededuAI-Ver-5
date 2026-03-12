@@ -1,0 +1,6 @@
+🚀 Starting test execution...
+❌ Test execution failed: Error: Tests are running. Please wait for it to complete or remove the lock file:  d:\Lenovo Narayana 2026\Software Products\Antigravity Projects\mededuai Ver 5\testsprite_tests\tmp\execution.lock
+    at file:///C:/Users/Dr%20Narayana%20K/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:134296:23
+    at Command.<anonymous> (file:///C:/Users/Dr%20Narayana%20K/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:141369:15)
+    at async Command.parseAsync (file:///C:/Users/Dr%20Narayana%20K/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:139638:6)
+    at async main (file:///C:/Users/Dr%20Narayana%20K/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:141614:9)

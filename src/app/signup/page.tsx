@@ -58,7 +58,7 @@ export default function SignUpPage() {
         } else {
             // If email confirmation is required, Supabase returns a user but no session
             if (data.user && data.session === null) {
-                setStep('success');
+                router.push('/login?message=Signup+successful.+Please+check+your+email+to+verify.');
             } else {
                 // If email confirmation is OFF, they are logged in automatically
                 router.push('/auth/callback'); 

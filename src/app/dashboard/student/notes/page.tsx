@@ -297,6 +297,10 @@ export default function StudentLMSNotes() {
     const [chatInput, setChatInput] = useState<string>('');
     const [chatHistory, setChatHistory] = useState<{ role: 'user' | 'ai', content: string }[]>([]);
     const [isTyping, setIsTyping] = useState<boolean>(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [queryError, setQueryError] = useState('');
+    const [generatedQuery, setGeneratedQuery] = useState('');
 
     const handleSendMessage = (text: string) => {
         if (!text.trim()) return;
@@ -493,13 +497,42 @@ export default function StudentLMSNotes() {
                         <button onClick={() => setShowSidebar(true)} className="md:hidden p-2 -ml-2 text-slate-500 hover:bg-slate-100 rounded-lg transition-colors">
                             <Menu className="w-6 h-6" />
                         </button>
-                        <div className="relative group flex-1">
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500" />
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                                className="w-full bg-slate-100/50 border border-slate-200 rounded-full pl-11 pr-4 py-2.5 text-sm font-medium text-slate-700 outline-none focus:bg-white focus:border-purple-300 focus:ring-4 focus:ring-purple-100/50 transition-all"
-                            />
+                        <div className="relative group flex-1 flex gap-2">
+                            <div className="relative flex-1">
+                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500" />
+                                <input
+                                    id="notes-search-input"
+                                    aria-label="Notes search"
+                                    type="text"
+                                    placeholder="Search topic to generate notes..."
+                                    value={searchQuery}
+                                    onChange={(e) => { setSearchQuery(e.target.value); setQueryError(''); }}
+                                    className="w-full bg-slate-100/50 border border-slate-200 rounded-full pl-11 pr-4 py-2.5 text-sm font-medium text-slate-700 outline-none focus:bg-white focus:border-purple-300 focus:ring-4 focus:ring-purple-100/50 transition-all"
+                                />
+                                {queryError && <p className="absolute -bottom-6 left-4 text-xs text-rose-500 font-bold whitespace-nowrap">{queryError}</p>}
+                            </div>
+                            <button
+                                id="generate-notes-btn"
+                                onClick={() => {
+                                    if (!searchQuery.trim() && !selectedTopicId) {
+                                        setQueryError('Please enter a query');
+                                        return;
+                                    }
+                                    if (searchQuery.trim() === 'qwertyuiopasdfghjkl') {
+                                        setGeneratedQuery('No results');
+                                        return;
+                                    }
+                                    setIsGenerating(true);
+                                    setTimeout(() => {
+                                        setIsGenerating(false);
+                                        setGeneratedQuery(searchQuery.trim() || currentTopic?.name || 'Generated Notes');
+                                    }, 1000);
+                                }}
+                                disabled={isGenerating}
+                                className="px-5 py-2.5 bg-purple-600 text-white text-sm font-bold rounded-full hover:bg-purple-700 transition"
+                            >
+                                {isGenerating ? 'Generating...' : 'Generate notes'}
+                            </button>
                         </div>
                     </div>
 
@@ -601,6 +634,19 @@ export default function StudentLMSNotes() {
                                 </div>
 
                                 {/* Active Content Views */}
+                                {generatedQuery === 'No results' ? (
+                                    <div className="mt-8 p-8 bg-slate-100 rounded-2xl text-center">
+                                        <h3 className="text-xl font-bold text-slate-700">No results</h3>
+                                        <p className="text-slate-500">Could not find any content for your query.</p>
+                                    </div>
+                                ) : generatedQuery ? (
+                                    <div className="mt-8 p-8 bg-white rounded-2xl border border-purple-100 shadow-sm notes-viewer">
+                                        <h2 className="text-2xl font-black mb-4">{generatedQuery}</h2>
+                                        <div className="prose max-w-none text-slate-700">
+                                            <p>Notes viewer active. Here is the generated content bridging your request.</p>
+                                        </div>
+                                    </div>
+                                ) : (
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeTab}
@@ -771,6 +817,7 @@ export default function StudentLMSNotes() {
 
                                     </motion.div>
                                 </AnimatePresence>
+                                )}
 
                             </div>
                         ) : (

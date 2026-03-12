@@ -126,6 +126,10 @@ export default function DashboardLayoutClient({ children, role, handleLogout }: 
                             </div>
                             <SidebarItem href={`/dashboard/teacher/notes`} icon={<BookOpen />} label="LMS Notes" />
                             <SidebarItem href={`/dashboard/teacher/mentorship`} icon={<Users />} label="Mentorship MS" />
+                            <SidebarItem href={`/dashboard/teacher/mentor`} icon={<MessageSquare />} label="AI Mentor" badge="Pro" />
+                            <SidebarItem href={`/dashboard/teacher/viva`} icon={<Mic />} label="Viva Simulator" />
+                            <SidebarItem href={`/dashboard/teacher/vocab`} icon={<GraduationCap />} label="Vocabulary" />
+                            <SidebarItem href={`/dashboard/teacher/reflection`} icon={<FileText />} label="Reflection Generator" />
                             <SidebarItem href={`/dashboard/teacher/lesson-plan`} icon={<FileText />} label="Lesson Plan" />
                             <SidebarItem href={`/dashboard/teacher/rubrics-generator`} icon={<ClipboardList />} label="Rubrics Generator" />
                             <SidebarItem href={`/dashboard/teacher/essays`} icon={<ClipboardType />} label="Essay Qs Generator" />

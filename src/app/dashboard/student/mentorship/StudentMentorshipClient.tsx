@@ -45,6 +45,8 @@ export default function StudentMentorshipClient() {
         nextMeetingDate: '',
         sendFeedback: true
     });
+    
+    const [requestStatus, setRequestStatus] = useState('');
 
     const selectedPeerMentee = myPeerMentees.find(m => m.id === selectedPeerMenteeId);
     const peerMenteeMeetings = meetings.filter(m => m.menteeId === selectedPeerMenteeId && m.isPeerMeeting);
@@ -166,7 +168,24 @@ export default function StudentMentorshipClient() {
                             </div>
                         </div>
 
-                        <div className="pt-6 flex justify-end">
+                        <div className="pt-6 flex justify-end items-center gap-4">
+                            {requestStatus && (
+                                <span className={`text-sm font-bold ${requestStatus.includes('Complete') ? 'text-red-600' : 'text-emerald-600'}`}>
+                                    {requestStatus}
+                                </span>
+                            )}
+                            <button
+                                onClick={() => {
+                                    if(!profileForm.regNo.trim() || !profileForm.mobileNumber.trim()) {
+                                        setRequestStatus("Complete your profile");
+                                    } else {
+                                        setRequestStatus("Request submitted");
+                                    }
+                                }}
+                                className="px-6 py-2.5 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition"
+                            >
+                                Request mentorship
+                            </button>
                             <button 
                                 onClick={() => {
                                     if(myMenteeRecord) {
