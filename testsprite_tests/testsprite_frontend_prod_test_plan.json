@@ -1,0 +1,31 @@
+[
+  {
+    "id": "TC_LOGIN_PROD_BUG",
+    "title": "Production Login on mededuai.com",
+    "description": "Verifies that navigating to mededuai.com/login fails due to the Next.js Server Actions CSRF issue.",
+    "category": "Production Bug Hunt",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://mededuai.com/login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"student@mededu.ai\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"password123\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the Log In button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/dashboard\""
+      }
+    ]
+  }
+]
